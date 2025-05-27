@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share Tech'
+}
+
+.login-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+}
+
+.login-container{
+    position: relative;
+    width: 850px;
+    height: 550px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 13px rgba(0, 0, 0, 0.2);
+}
+
+.form-box{
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-content{
+    width: 100%;
+}
+
+.form-content h1{
+    font-size: 36px;
+    margin: -10px 0;
+}
+
+.input-box{
+    position: relative;
+    margin: 2.5rem 0;
+}
+
+.input-box[type:text]
