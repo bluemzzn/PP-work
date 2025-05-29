@@ -9,7 +9,7 @@
 
 :root {
     --main-color: rgb(38, 81, 174);
-    --hover-color: skyblue;
+    --hover-color: rgb(92, 135, 230);
 }
 
 /* Fade in Animation */
@@ -22,7 +22,6 @@
     justify-content: center;
     min-height: 100vh;
     background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
-
 }
 
 .login-container {
