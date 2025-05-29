@@ -7,23 +7,23 @@
     font-family: 'Share Tech'
 }
 
+body {
+    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+}
+
 :root {
     --main-color: rgb(38, 81, 174);
     --hover-color: rgb(92, 135, 230);
-    --green--success : #4cd137;
+    --green--success: #4cd137;
     --red-error: red;
+    --default-font-size: 1rem;
 }
-
-/* Fade in Animation */
-
-
 
 .login-page {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
 }
 
 .login-container {
@@ -62,7 +62,7 @@
 
 .login-container.active .form-box.register {
     visibility: visible;
-  
+
 }
 
 .form-content {
@@ -93,7 +93,7 @@
     font-weight: 500;
 }
 
-.input-box input:focus{
+.input-box input:focus {
     transition: 0.3s ease;
     border: 2px solid var(--main-color);
 }
@@ -112,23 +112,23 @@
     color: #888;
 }
 
-.input-box span i{
+.input-box span i {
     position: absolute;
     margin-left: 3.1rem;
     top: 35%;
     transition: all 0.6s ease;
 }
 
-.input-box span i:hover{
+.input-box span i:hover {
     color: var(--main-color);
 }
 
-.error{
+.error {
     color: var(--red-error);
     font-size: 1rem;
 }
 
-.success{
+.success {
     color: var(--green--success);
     font-size: 1rem;
 }
@@ -147,9 +147,10 @@
     transition: all 0.4s ease;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: var(--hover-color);
 }
+
 .toggle-box {
     position: absolute;
     width: 100%;
@@ -232,82 +233,228 @@
 }
 
 @media screen and (max-width: 658px) {
-    .login-container{
+    .login-container {
         min-height: calc(100vh -40px);
     }
 
-    .form-box{
+    .form-box {
         width: 100%;
         height: 70%;
         top: 0;
     }
 
-    .login-container.active .form-box{
+    .login-container.active .form-box {
         left: 0;
         top: 30%;
     }
 
-    .toggle-box::before{
+    .toggle-box::before {
         right: 0;
         bottom: -268%;
         width: 100%;
         height: 300%;
     }
 
-    .login-container.active .toggle-box::before{
+    .login-container.active .toggle-box::before {
         bottom: 68%;
         right: 0;
         border-radius: 20vw;
     }
 
 
-    .toggle-panel{
+    .toggle-panel {
         width: 100%;
         height: 30%;
 
     }
 
-    .toggle-panel h1{
+    .toggle-panel h1 {
         font-size: 3rem;
     }
 
-    .toggle-panel p{
+    .toggle-panel p {
         margin: 0.8rem 0;
         font-size: 1rem;
     }
 
     .register-btn,
-    .login-btn{
+    .login-btn {
         font-size: 1rem;
         height: 2.4rem;
     }
 
-    .toggle-panel.toggle-right{
+    .toggle-panel.toggle-right {
         bottom: 0;
     }
 
-    .login-container.active .toggle-panel.toggle-right{
+    .login-container.active .toggle-panel.toggle-right {
         right: 0;
         bottom: -30%;
     }
 
-    .toggle-panel.toggle-left{
+    .toggle-panel.toggle-left {
         left: 0;
-       top: -30%;
+        top: -30%;
     }
 
-    .login-container.active .toggle-panel.toggle-left{
+    .login-container.active .toggle-panel.toggle-left {
         top: 0;
 
     }
 }
 
-@media screen and (max-width: 400px){
-    .form-box{
+@media screen and (max-width: 400px) {
+    .form-box {
         padding: 2.5rem;
     }
 
-    .toggle-panel h1{
+    .toggle-panel h1 {
         font-size: 2.4rem;
     }
+}
+
+/* PC page */
+.container {
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    height: 100vh;
+    grid-template-areas:
+        "main   aside";
+    padding: 2rem;
+}
+
+
+/* main content */
+.account-section {
+    margin-top: 2rem;
+    max-width: 1536px;
+}
+
+.account-container {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.account-container:hover {
+    color: var(--hover-color);
+    
+}
+
+.account-profile {
+    font-size: 1.4rem;
+}
+
+.account-name {
+    font-size: 1.4rem;
+    margin-right: 1rem;
+}
+
+/* Main content */
+.pc-row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pc-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.8rem; 
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+    max-width: fit-content;
+    gap: 1.5rem;
+    font-size: 1rem; 
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 1rem;
+}
+
+.control span {
+    margin: 0.1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+   
+}
+
+.control span:hover {
+    color: var(--main-color);
+    transform: scale(1.2);
+}
+
+.hardware {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:0rem; 
+    border: none;
+    border-radius: 12px;
+    background: rgb(69, 103, 138);
+    transition: 0.4s ease;
+    flex-shrink: 0;
+    outline-offset: 2px;
+}
+
+.front{
+    display: block;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    background: rgb(158, 199, 241);
+    transform: translateY(-6px);
+    transition: 0.2s ease;
+}
+
+.front:hover{
+    background: rgb(185, 213, 241);
+}
+
+.hardware:active .front{
+    transform: translateY(-2px);
+}
+
+.hardware-stat {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 1rem;
+    gap: 10px;
+}
+
+.hardware-stat span {
+    display: flex;
+    font-size: 1rem;
+}
+
+.hardware-status {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    gap: 0.2rem;
+}
+
+.hardware-status span {
+    font-size: 1rem;
+}
+
+
+/* Aside section */
+
+.box{
+    padding: 1.2rem;
+    border: none;
+    background: whitesmoke;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.2);
 }
