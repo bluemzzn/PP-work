@@ -11,6 +11,10 @@
     --main-color: rgb(38, 81, 174);
 }
 
+/* Fade in Animation */
+
+
+
 .login-page {
     display: flex;
     align-items: center;
@@ -95,19 +99,19 @@
     position: absolute;
     top: 30%;
     left: 87%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #888;
 }
 
-.input-box span {
+.input-box span i{
     position: absolute;
-    margin-left: 0.4rem;
+    margin-left: 3.1rem;
     top: 35%;
-    transition: 0.2s ease;
+    transition: all 0.6s ease;
 }
 
-.input-box:hover{
-    color: aqua;
+.input-box span i:hover{
+    color: var(--main-color);
 }
 
 .btn {

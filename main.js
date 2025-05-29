@@ -12,10 +12,23 @@ loginbtn.addEventListener('click', () =>{
 });
 
 // Show password function
-const showPass = document.querySelector('#showPass');
+const showloginPass = document.querySelector('#showPass');
+const passwordField = document.querySelector('#login-pass');
 
-showPass.addEventListener('click', () =>{
-    this.classList.toggle("bxs-lock");
+showloginPass.addEventListener("click", function(){
+    this.classList.toggle("fa-eye");
     const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
     passwordField.setAttribute("type", type);
 })
+
+const showRegisterPass = document.querySelector('#showregisterPass');
+const registerPasswordField = document.querySelector('#register-pass');
+
+showRegisterPass.addEventListener("click", function(){
+    this.classList.toggle("fa-eye");
+    const type = registerPasswordField.getAttribute("type") === "password" ? "text" : "password";
+    registerPasswordField.setAttribute("type", type);
+});
+
+//Animation hidden & show when enter the site
+
