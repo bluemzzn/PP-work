@@ -37,38 +37,35 @@ document.getElementById('confirmPassword').addEventListener('input',
     }
 );
 
-function validationForm(){
+function validationForm() {
     const password = document.getElementById('register-pass').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const submitBtn = document.getElementById('submitbtn');
     const errorElement = document.getElementById('passwordError');
 
-    let isValid = true;
-
-    if(!password || !confirmPassword){
-        isValid = false;
-    }
-
-    if(password !== confirmPassword){
-        errorElement.textContent = 'Password do not match';
-        errorElement.classList.remove('success');
-        errorElement.classList.add('error');
-        isValid = false;
-    } else{
-        errorElement.textContent = 'Password match';
-         errorElement.classList.add('success');
-        errorElement.classList.remove('error');
-
-    }
-
-    if(isValid){
-        submitBtn.classList.add('enabled');
-        submitBtn.disabled = false;
-    } else{
+    if (!password || !confirmPassword) {
+        errorElement.textContent = '';
+        errorElement.classList.remove('success', 'error');
         submitBtn.classList.remove('enabled');
         submitBtn.disabled = true;
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        errorElement.textContent = 'Passwords do not match';
+        errorElement.classList.remove('success');
+        errorElement.classList.add('error');
+        submitBtn.classList.remove('enabled');
+        submitBtn.disabled = true;
+    } else {
+        errorElement.textContent = 'Passwords match';
+        errorElement.classList.add('success');
+        errorElement.classList.remove('error');
+        submitBtn.classList.add('enabled');
+        submitBtn.disabled = false;
     }
 }
+
 
 //Animation hidden & show when enter the site
 
