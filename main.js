@@ -30,5 +30,45 @@ showRegisterPass.addEventListener("click", function(){
     registerPasswordField.setAttribute("type", type);
 });
 
+//Password Register Validation
+document.getElementById('confirmPassword').addEventListener('input', 
+    function(){
+        validationForm();
+    }
+);
+
+function validationForm(){
+    const password = document.getElementById('register-pass').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const submitBtn = document.getElementById('submitbtn');
+    const errorElement = document.getElementById('passwordError');
+
+    let isValid = true;
+
+    if(!password || !confirmPassword){
+        isValid = false;
+    }
+
+    if(password !== confirmPassword){
+        errorElement.textContent = 'Password do not match';
+        errorElement.classList.remove('success');
+        errorElement.classList.add('error');
+        isValid = false;
+    } else{
+        errorElement.textContent = 'Password match';
+         errorElement.classList.add('success');
+        errorElement.classList.remove('error');
+
+    }
+
+    if(isValid){
+        submitBtn.classList.add('enabled');
+        submitBtn.disabled = false;
+    } else{
+        submitBtn.classList.remove('enabled');
+        submitBtn.disabled = true;
+    }
+}
+
 //Animation hidden & show when enter the site
 

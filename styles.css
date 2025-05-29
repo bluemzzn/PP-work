@@ -10,6 +10,8 @@
 :root {
     --main-color: rgb(38, 81, 174);
     --hover-color: rgb(92, 135, 230);
+    --green--success : #4cd137;
+    --red-error: red;
 }
 
 /* Fade in Animation */
@@ -118,6 +120,16 @@
 
 .input-box span i:hover{
     color: var(--main-color);
+}
+
+.error{
+    color: var(--red-error);
+    font-size: 1rem;
+}
+
+.success{
+    color: var(--green--success);
+    font-size: 1rem;
 }
 
 .btn {
