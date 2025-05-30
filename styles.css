@@ -15,12 +15,13 @@ body {
     --main-color: rgb(38, 81, 174);
     --hover-color: rgb(92, 135, 230);
     --green--success: #4cd137;
-    --red-error: red;
+    --red-error: rgb(230, 87, 87);
     --default-font-size: 1rem;
 
     /* palette color */
-    --primary-color: #AFCBFF;
+    --primary-color: #93CCEA;
     --yellow-color: #FFE156;
+    --hover-yellow: #d9be48;
     --coral-color: #FF6B6B;
     --pure-white: #FFFFFF;
     --pale-green: #406D73;
@@ -133,6 +134,7 @@ body {
 .error {
     color: var(--red-error);
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .success {
@@ -371,7 +373,8 @@ body {
     display: flex;
     align-items: flex-start;
     padding: 1.8rem; 
-    background: white;
+    background: #f1f0f0;
+    border: 2px solid var(--pale-green);
     border-radius: 12px;
     box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
     max-width: fit-content;
@@ -391,11 +394,10 @@ body {
     font-size: 0.9rem;
     cursor: pointer;
     transition: 0.3s ease;
-   
 }
 
 .control span:hover {
-    color: var(--main-color);
+    color: var(--coral-color);
     transform: scale(1.2);
 }
 
@@ -468,8 +470,172 @@ aside{
 }
 
 /* dev page */
+
+.dev-container{
+    max-width: 1440px;
+    padding: 2.5rem;
+    
+}
 .dev-status{
-    width: 50%;
     display: flex;
     gap: 20px;
+}
+
+.dev-box{
+    padding: 1.2rem;
+    border: 2.5px solid var(--pale-green);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.dev-box:nth-child(1){
+    font-weight: 600;
+    background: var(--green--success);
+     transition: 0.4s ease;
+}
+
+.dev-box:nth-child(1):hover{
+    background: #3ba02c;
+}
+
+.dev-box:nth-child(2){
+     font-weight: 600;
+    background: var(--red-error);
+     transition: 0.4s ease;
+}
+
+.dev-box:nth-child(2):hover{
+    background: rgb(161, 4, 4);
+}
+
+.dev-addtool{
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: row;
+    height: 2rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.filter-tool{
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--main-color);
+    box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.4);
+    color: white;
+    transition: 0.4s ease;
+}
+
+.filter-tool:hover{
+    background: rgb(22, 50, 112);
+}
+
+.dev-search i {
+    padding: 0.5rem;
+    border: none;
+    background: var(--yellow-color);
+     box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+      transition: 0.4s ease;
+}
+
+.dev-search i:hover{
+    background: var(--hover-yellow);
+}
+
+.dev-addtool span i {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: none;
+     box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+#search-filter{
+    padding: 0.5rem;
+    width: 300px;
+    border-radius: 20px;
+}
+thead th input[type="checkbox"]{
+    padding: 2rem;
+}
+table,
+tr,
+th{
+    margin-left: 3rem;
+    border: 1px solid var(--pale-green);
+    border-collapse: collapse;
+    padding: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+table{
+    width:700px;
+   
+}
+
+
+th{
+    border: none;
+    background: var(--coral-color);
+    transition: 0.4s ease;
+}
+
+th:hover{
+    background: #e15d5d;
+}
+
+th i{
+    margin-left: 0.2rem;
+    padding: 0.3rem;
+   text-align: center;
+   cursor: pointer;
+}
+
+thead th.active{
+    color: white;
+}
+
+td{
+    padding: 0.8rem;
+    background: palegoldenrod;
+}
+
+td:hover{
+    background: var(--primary-color);
+}
+
+/* input section */
+.input-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    gap: 10px;
+    padding: 1.8rem;
+    background: var(--primary-color);
+    box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+}
+
+.select-tool select{
+    font-size: var(--default-font-size);
+}
+
+.input-info input[type="text"]{
+    width: 300px;
+    border-radius: 9999px;    
+    padding: 0.5rem;
+    font-size: var(--default-font-size);
+} 
+
+.input-info button i{
+    padding: 0.5rem;
+    width: 30px;
 }

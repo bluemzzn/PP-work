@@ -14,11 +14,77 @@
     <title>Develop table</title>
 </head>
 <body>
-    <div class="container">
-        <div class="dev-status">
-            <div class="box"><i class="fa-solid fa-server"></i>   Online : 10</div>
-            <div class="box"><i class="fa-solid fa-signal"></i>   Offline : 200</div>
+        <div class="dev-container">
+            <section class="dev-status">
+                <div class="dev-box"><i class="fa-solid fa-server"></i>   Online : 10</div>
+                <div class="dev-box"><i class="fa-solid fa-signal"></i>   Offline : 200</div>
+            </section>
+    
+
+            <section class="dev-addtool">  
+                <button class="filter-tool"><i class="fa-solid fa-filter"></i>  filter</button>      
+                <div class="dev-search">
+                    <input type="search" name="" id="search-filter" placeholder="Search..." >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <span><i class="fa-regular fa-file-excel" style="background: greenyellow;"></i></span>
+                <span><i class="fa-solid fa-trash-can" style="background: grey;"></i></span>
+            </section>
         </div>
-    </div>
+                
+            <section id="dev-table">
+                <table>
+                    <thead>
+                        <th><input type="checkbox" onclick="selectAll(this)" id="selectAllcheckbox"></th>
+                        <th>Status  <i class="fa-solid fa-sort"></i></th>
+                        <th>PC   <i class="fa-solid fa-sort"></i></th>
+                        <th>Username   <i class="fa-solid fa-sort"></i></th>
+                        <th>Price   <i class="fa-solid fa-sort"></i></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Online</td>
+                            <td>Asus</td>
+                            <td>Kamley</td>
+                            <td>1500</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Online</td>
+                            <td>Asus</td>
+                            <td>Kamley</td>
+                            <td>1500</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+
+            <section >
+                <div class="dev-container">
+                    <div class="input-info">
+                        <div class="select-tool">
+                            <label for="status">Status: </label>
+                            <select  name="status" id="status" required>
+                                <option selected disabled>Select the status</option>
+                                <option value="Online" id="online">Online</option>
+                                <option value="Offline" id="offine">Offline</option>
+                            </select>
+                        </div>
+                        <input type="text" name="" id="pc" placeholder="  Enter PC" required>
+                        <input type="text" name="" id="username" placeholder="  Enter username" required>
+                        <input type="text" name="" id="price" placeholder="  Enter Prices" required>
+                         <button onclick="addRow()" ><i class="fa-solid fa-plus"></i></button>
+                         <div id="errorAdd" class="error"></div>
+                    </div>
+                </div>
+            </section>
+
+
+        
+        <script src="main.js"></script>
+
 </body>
 </html>

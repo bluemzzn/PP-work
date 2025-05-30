@@ -67,5 +67,70 @@ function validationForm() {
 }
 
 
-//Animation hidden & show when enter the site
+// add row
+function addRow(){
+    const pc = document.getElementById('pc').value.trim();
+    const status = document.getElementById('status').value.trim();
+    const username = document.getElementById('username').value.trim();
+    const price = document.getElementById('price').value.trim();
+    const errorInput = document.getElementById('errorAdd');
 
+    const table = document.getElementById('dev-table').getElementsByTagName("tbody")[0];
+    const newrow = table.insertRow();
+
+        if (!status || !pc || !username || !price) {
+        errorInput.textContent = 'Please input the information!';    
+        return;
+      }
+
+    newrow.insertCell().innerHTML = `<input type="checkbox" class="row-check">`;
+    newrow.insertCell().innerText = status;
+    newrow.insertCell().innerText = pc;
+    newrow.insertCell().innerText = username;
+    newrow.insertCell().innerText = price;
+
+    //clear input
+    document.getElementById("status").value = '';
+    document.getElementById("pc").value = '';
+    document.getElementById("username").value = '';
+    document.getElementById("price").value = '';
+
+    errorInput.textContent = '';
+
+    updateCheckedCount();
+
+}   
+
+//Select All checkboxes
+function selectAll(source){
+    const checkboxes = document.querySelectorAll('#dev-table tbody input[type="checkbox"]');
+    checkboxes.forEach(cb => {
+        cb.checked = source.checked;
+    });
+    updateCheckedCount();
+}
+
+function updateCheckedCount(){
+     const checkboxes = document.querySelectorAll('#dev-table tbody input[type="checkbox"]');
+    const count = Array.from(checkboxes).filter(cb => cb.checked).length;
+    document.getElementById('checkedCount').innerText = count;
+
+    // Update select all checkbox state if not all are selected
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    selectAllCheckbox.checked = checkboxes.length && count === checkboxes.length;
+    selectAllCheckbox.indeterminate = count > 0 && count < checkboxes.length;
+}
+
+document.querySelectorAll('#dev-table tbody input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', updateCheckedCount);
+});
+
+
+//sort table
+const table_head = document.querySelectorAll('thead th');
+
+table_head.forEach((head) =>{
+    head.onclick = () => {
+        head.classList.add('active');
+    }
+})
