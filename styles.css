@@ -17,6 +17,13 @@ body {
     --green--success: #4cd137;
     --red-error: red;
     --default-font-size: 1rem;
+
+    /* palette color */
+    --primary-color: #AFCBFF;
+    --yellow-color: #FFE156;
+    --coral-color: #FF6B6B;
+    --pure-white: #FFFFFF;
+    --pale-green: #406D73;
 }
 
 .login-page {
@@ -395,8 +402,6 @@ body {
 .hardware {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding:0rem; 
     border: none;
     border-radius: 12px;
@@ -449,7 +454,9 @@ body {
 
 
 /* Aside section */
-
+aside{
+    margin-left: 2rem;
+}
 .box{
     padding: 1.2rem;
     border: none;
@@ -457,4 +464,5 @@ body {
     border-radius: 12px;
     margin-bottom: 1rem;
     box-shadow: 0 5px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
