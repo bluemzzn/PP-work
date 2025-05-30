@@ -27,8 +27,8 @@
                     <input type="search" name="" id="search-filter" placeholder="Search..." >
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <span><i class="fa-regular fa-file-excel" style="background: greenyellow;"></i></span>
-                <span><i class="fa-solid fa-trash-can" style="background: grey;"></i></span>
+                <span><i class="fa-regular fa-file-excel" style="background: #4cd137;"></i></span>
+                <span><i class="fa-solid fa-trash-can" style="background: rgb(168, 168, 168);"></i></span>
             </section>
         </div>
                 
@@ -39,6 +39,7 @@
                         <th>Status  <i class="fa-solid fa-sort"></i></th>
                         <th>PC   <i class="fa-solid fa-sort"></i></th>
                         <th>Username   <i class="fa-solid fa-sort"></i></th>
+                         <th>Nan   <i class="fa-solid fa-sort"></i></th>
                         <th>Price   <i class="fa-solid fa-sort"></i></th>
                     </thead>
                     <tbody>
@@ -47,6 +48,7 @@
                             <td>Online</td>
                             <td>Asus</td>
                             <td>Kamley</td>
+                            <td><i class="fa-solid fa-check"></i></td>
                             <td>1500</td>
                         </tr>
 
@@ -54,7 +56,8 @@
                             <td><input type="checkbox"></td>
                             <td>Online</td>
                             <td>Asus</td>
-                            <td>Kamley</td>
+                            <td>Aria</td>
+                            <td><i class="fa-solid fa-x"></i></td>
                             <td>1500</td>
                         </tr>
 
@@ -75,6 +78,14 @@
                         </div>
                         <input type="text" name="" id="pc" placeholder="  Enter PC" required>
                         <input type="text" name="" id="username" placeholder="  Enter username" required>
+                        <div class="select-tool">
+                            <label for="Nan">Nan: </label>
+                            <select  name="Nan" id="Nan" required>
+                                <option selected disabled>Select the status</option>
+                                <option value="fa fa-check" id="correct">✅</option>
+                                <option value="fa fa-xmark" id="wrong">❌</option>
+                            </select>
+                        </div>
                         <input type="text" name="" id="price" placeholder="  Enter Prices" required>
                          <button onclick="addRow()" ><i class="fa-solid fa-plus"></i></button>
                          <div id="errorAdd" class="error"></div>

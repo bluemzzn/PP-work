@@ -582,12 +582,13 @@ table{
 
 th{
     border: none;
-    background: var(--coral-color);
+    background: var(--main-color);
+    color: white;
     transition: 0.4s ease;
 }
 
 th:hover{
-    background: #e15d5d;
+    background: #304091;
 }
 
 th i{
@@ -603,11 +604,11 @@ thead th.active{
 
 td{
     padding: 0.8rem;
-    background: palegoldenrod;
+    background: white;
 }
 
 td:hover{
-    background: var(--primary-color);
+    background: rgb(237, 236, 236);
 }
 
 /* input section */
@@ -619,23 +620,36 @@ td:hover{
     max-width: 400px;
     gap: 10px;
     padding: 1.8rem;
-    background: var(--primary-color);
+    background: white;
     box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.4);
     border-radius: 1rem;
 }
-
+.select-tool label{
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+}
 .select-tool select{
     font-size: var(--default-font-size);
+    padding: 0.5rem;
+    border-radius: 9999px;
+    transition: 0.4s ease;
+}
+
+.select-tool select:hover{
+    background: #d4f0ff;
 }
 
 .input-info input[type="text"]{
     width: 300px;
+    background: #e1e1e1;
     border-radius: 9999px;    
     padding: 0.5rem;
     font-size: var(--default-font-size);
 } 
 
-.input-info button i{
+.input-info button {
+    background: var(--green--success);
+    border-radius: 5px;
     padding: 0.5rem;
-    width: 30px;
+    width: 35px;
 }

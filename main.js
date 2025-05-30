@@ -3,39 +3,46 @@ const container = document.querySelector('.login-container');
 const registerbtn = document.querySelector('.register-btn');
 const loginbtn = document.querySelector('.login-btn');
 
-registerbtn.addEventListener('click', () =>{
-    container.classList.add('active');
-});
+if (registerbtn) {
+    registerbtn.addEventListener('click', () =>{
+        container.classList.add('active');
+    });
+}
 
-loginbtn.addEventListener('click', () =>{
-    container.classList.remove('active');
-});
+if (loginbtn) {
+    loginbtn.addEventListener('click', () =>{
+        container.classList.remove('active');
+    });
+}
 
 // Show password function
 const showloginPass = document.querySelector('#showPass');
 const passwordField = document.querySelector('#login-pass');
 
-showloginPass.addEventListener("click", function(){
-    this.classList.toggle("fa-eye");
-    const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
-    passwordField.setAttribute("type", type);
-})
+if(showloginPass){
+    showloginPass.addEventListener("click", function(){
+        this.classList.toggle("fa-eye");
+        const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+        passwordField.setAttribute("type", type);
+})}
 
 const showRegisterPass = document.querySelector('#showregisterPass');
 const registerPasswordField = document.querySelector('#register-pass');
 
-showRegisterPass.addEventListener("click", function(){
-    this.classList.toggle("fa-eye");
-    const type = registerPasswordField.getAttribute("type") === "password" ? "text" : "password";
-    registerPasswordField.setAttribute("type", type);
-});
+if(showRegisterPass){
+    showRegisterPass.addEventListener("click", function(){
+        this.classList.toggle("fa-eye");
+        const type = registerPasswordField.getAttribute("type") === "password" ? "text" : "password";
+        registerPasswordField.setAttribute("type", type);
+});}
 
 //Password Register Validation
-document.getElementById('confirmPassword').addEventListener('input', 
-    function(){
+const confirmPasswordInput = document.getElementById('confirmPassword');
+if (confirmPasswordInput) {
+    confirmPasswordInput.addEventListener('input', function() {
         validationForm();
-    }
-);
+    });
+}
 
 function validationForm() {
     const password = document.getElementById('register-pass').value;
@@ -125,6 +132,19 @@ document.querySelectorAll('#dev-table tbody input[type="checkbox"]').forEach(cb 
     cb.addEventListener('change', updateCheckedCount);
 });
 
+
+//search table
+const search = document.querySelector('.dev-search input');
+    table_row = document.querySelectorAll('tbody tr');
+
+    search.addEventListener('input', searchTable);
+
+    function searchTable(){
+        table_row.forEach((row, i)=>{
+            console.log(row.textContent);
+            
+        })
+    }
 
 //sort table
 const table_head = document.querySelectorAll('thead th');
