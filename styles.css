@@ -14,6 +14,7 @@ body {
 :root {
     --main-color: rgb(38, 81, 174);
     --hover-color: rgb(92, 135, 230);
+    --hover-darker: rgb(22, 50, 112);
     --green--success: #4cd137;
     --red-error: rgb(230, 87, 87);
     --default-font-size: 1rem;
@@ -349,7 +350,7 @@ body {
 
 .account-container:hover {
     color: var(--hover-color);
-    
+
 }
 
 .account-profile {
@@ -362,7 +363,7 @@ body {
 }
 
 /* Main content */
-.pc-row{
+.pc-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     flex-wrap: wrap;
@@ -372,14 +373,14 @@ body {
 .pc-card {
     display: flex;
     align-items: flex-start;
-    padding: 1.8rem; 
-    background: #f1f0f0;
+    padding: 1.8rem;
+    background: #dceaf7;
     border: 2px solid var(--pale-green);
     border-radius: 12px;
     box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
     max-width: fit-content;
     gap: 1.5rem;
-    font-size: 1rem; 
+    font-size: 1rem;
 }
 
 .control {
@@ -393,7 +394,7 @@ body {
     margin: 0.1rem;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.3s ease;  
 }
 
 .control span:hover {
@@ -404,7 +405,7 @@ body {
 .hardware {
     display: flex;
     flex-direction: column;
-    padding:0rem; 
+    padding: 0rem;
     border: none;
     border-radius: 12px;
     background: rgb(69, 103, 138);
@@ -413,7 +414,7 @@ body {
     outline-offset: 2px;
 }
 
-.front{
+.front {
     display: block;
     padding: 1rem;
     border-radius: 12px;
@@ -423,11 +424,11 @@ body {
     transition: 0.2s ease;
 }
 
-.front:hover{
+.front:hover {
     background: rgb(185, 213, 241);
 }
 
-.hardware:active .front{
+.hardware:active .front {
     transform: translateY(-2px);
 }
 
@@ -456,10 +457,11 @@ body {
 
 
 /* Aside section */
-aside{
+aside {
     margin-left: 2rem;
 }
-.box{
+
+.box {
     padding: 1.2rem;
     border: none;
     background: whitesmoke;
@@ -471,17 +473,18 @@ aside{
 
 /* dev page */
 
-.dev-container{
+.dev-container {
     max-width: 1440px;
     padding: 2.5rem;
-    
+
 }
-.dev-status{
+
+.dev-status {
     display: flex;
     gap: 20px;
 }
 
-.dev-box{
+.dev-box {
     padding: 1.2rem;
     border: 2.5px solid var(--pale-green);
     border-radius: 12px;
@@ -489,27 +492,27 @@ aside{
     cursor: pointer;
 }
 
-.dev-box:nth-child(1){
+.dev-box:nth-child(1) {
     font-weight: 600;
     background: var(--green--success);
-     transition: 0.4s ease;
+    transition: 0.4s ease;
 }
 
-.dev-box:nth-child(1):hover{
+.dev-box:nth-child(1):hover {
     background: #3ba02c;
 }
 
-.dev-box:nth-child(2){
-     font-weight: 600;
+.dev-box:nth-child(2) {
+    font-weight: 600;
     background: var(--red-error);
-     transition: 0.4s ease;
+    transition: 0.4s ease;
 }
 
-.dev-box:nth-child(2):hover{
+.dev-box:nth-child(2):hover {
     background: rgb(161, 4, 4);
 }
 
-.dev-addtool{
+.dev-addtool {
     display: flex;
     margin: 0 auto;
     align-items: center;
@@ -519,7 +522,7 @@ aside{
     margin-top: 2rem;
 }
 
-.filter-tool{
+.filter-tool {
     font-size: 1.2rem;
     padding: 0.5rem;
     border: none;
@@ -530,89 +533,109 @@ aside{
     transition: 0.4s ease;
 }
 
-.filter-tool:hover{
+.filter-tool:hover {
     background: rgb(22, 50, 112);
 }
 
 .dev-search i {
     padding: 0.5rem;
+    color: white;
     border: none;
-    background: var(--yellow-color);
-     box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.4);
+    background: var(--main-color);
+    box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.4);
     border-radius: 50%;
-      transition: 0.4s ease;
+    transition: 0.4s ease;
 }
 
-.dev-search i:hover{
-    background: var(--hover-yellow);
+.dev-search i:hover {
+    background: var(--hover-darker);
 }
 
 .dev-addtool span i {
     font-size: 1.2rem;
     padding: 0.5rem;
     border: none;
-     box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
 }
 
-#search-filter{
+#search-filter {
     padding: 0.5rem;
     width: 300px;
     border-radius: 20px;
 }
-thead th input[type="checkbox"]{
+
+#search-filter:focus{
+    background: var(--yellow-color);
+}
+
+thead th input[type="checkbox"] {
     padding: 2rem;
 }
-table,
-tr,
-th{
+
+table {
+    width: fit-content;
     margin-left: 3rem;
-    border: 1px solid var(--pale-green);
     border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.21);
+}
+
+tr,
+th {
+    margin-left: 3rem;
     padding: 0.8rem;
     text-align: center;
     cursor: pointer;
 }
 
-table{
-    width:700px;
-   
-}
-
-
-th{
+th {
     border: none;
     background: var(--main-color);
     color: white;
     transition: 0.4s ease;
 }
 
-th:hover{
+th:hover {
     background: #304091;
 }
 
-th i{
+th i {
     margin-left: 0.2rem;
     padding: 0.3rem;
-   text-align: center;
-   cursor: pointer;
+    text-align: center;
+    cursor: pointer;
 }
 
-thead th.active{
+thead th.active {
     color: white;
 }
 
-td{
-    padding: 0.8rem;
+tbody tr{
     background: white;
+    transition: 0.4s ease-in-out;
 }
-
-td:hover{
+tbody tr:hover{
     background: rgb(237, 236, 236);
 }
 
+tbody tr.hide{
+    --delay: 0.3s;
+    transition: 0.3s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr.hide{
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+td {
+    padding: 1rem;
+    
+}
+
+
 /* input section */
-.input-info{
+.input-info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -624,32 +647,47 @@ td:hover{
     box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.4);
     border-radius: 1rem;
 }
-.select-tool label{
+
+.select-tool label {
     font-size: 1.2rem;
     margin-right: 0.2rem;
 }
-.select-tool select{
+
+.select-tool select {
     font-size: var(--default-font-size);
     padding: 0.5rem;
     border-radius: 9999px;
     transition: 0.4s ease;
 }
 
-.select-tool select:hover{
-    background: #d4f0ff;
+.select-tool select:hover {
+    background: var(--yellow-color);
 }
 
-.input-info input[type="text"]{
+.input-info input[type="text"] {
     width: 300px;
     background: #e1e1e1;
-    border-radius: 9999px;    
+    border-radius: 9999px;
     padding: 0.5rem;
     font-size: var(--default-font-size);
-} 
+}
 
 .input-info button {
     background: var(--green--success);
+    font-size: var(--default-font-size);
     border-radius: 5px;
-    padding: 0.5rem;
-    width: 35px;
+    padding: 0.6rem 1rem;
+    transition: 0.4s ease;
+}
+
+.input-info button:hover{
+    background: #3a992b;
+}
+
+.status-online{
+    color: var(--green--success);
+}
+
+.status-offline{
+    color: var(--red-error);
 }

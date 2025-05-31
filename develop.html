@@ -32,70 +32,57 @@
             </section>
         </div>
                 
-            <section id="dev-table">
-                <table>
+            <section >
+                <table id="dataTable">
                     <thead>
-                        <th><input type="checkbox" onclick="selectAll(this)" id="selectAllcheckbox"></th>
-                        <th>Status  <i class="fa-solid fa-sort"></i></th>
-                        <th>PC   <i class="fa-solid fa-sort"></i></th>
-                        <th>Username   <i class="fa-solid fa-sort"></i></th>
-                         <th>Nan   <i class="fa-solid fa-sort"></i></th>
-                        <th>Price   <i class="fa-solid fa-sort"></i></th>
+                        <tr>
+                            <th><input type="checkbox" onclick="selectAll(this)" id="selectAllcheckbox"></th>
+                            <th>Status  <i class="fa-solid fa-sort"></i></th>
+                            <th>PC   <i class="fa-solid fa-sort"></i></th>
+                            <th>Username   <i class="fa-solid fa-sort"></i></th>
+                            <th>Price   <i class="fa-solid fa-sort"></i></th>
+                            <th>Nan   <i class="fa-solid fa-sort"></i></th>
+                        </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>Online</td>
-                            <td>Asus</td>
-                            <td>Kamley</td>
-                            <td><i class="fa-solid fa-check"></i></td>
-                            <td>1500</td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>Online</td>
-                            <td>Asus</td>
-                            <td>Aria</td>
-                            <td><i class="fa-solid fa-x"></i></td>
-                            <td>1500</td>
-                        </tr>
-
+                    <tbody id="dataOutput">
+                        <!-- from js -->
                     </tbody>
                 </table>
             </section>
 
             <section >
                 <div class="dev-container">
-                    <div class="input-info">
-                        <div class="select-tool">
-                            <label for="status">Status: </label>
-                            <select  name="status" id="status" required>
-                                <option selected disabled>Select the status</option>
-                                <option value="Online" id="online">Online</option>
-                                <option value="Offline" id="offine">Offline</option>
-                            </select>
+                    <form id="dataForm">
+                        <div class="input-info">
+                            <div class="select-tool">
+                                <label for="status">Status: </label>
+                                <select  name="status" id="status" required>
+                                    <option selected disabled>Select the status</option>
+                                    <option value="Online" id="online">Online</option>
+                                    <option value="Offline" id="offine">Offline</option>
+                                </select>
+                            </div>
+                            <input type="text" name="" id="pc-input" placeholder="  Enter PC" required>
+                            <input type="text" name="" id="username-input" placeholder="  Enter username" required>
+                            <input type="text" name="" id="price-input" placeholder="  Enter Prices" required>
+                            <div class="select-tool">
+                                <label for="nan">Nan: </label>
+                                <select  name="nan" id="nan" required>
+                                    <option selected disabled>Select the status</option>
+                                    <option value="fa fa-check" id="correct">✅</option>
+                                    <option value="fa fa-xmark" id="wrong">❌</option>
+                                </select>
+                            </div>
+                            <button  value="submit">Add</button>
+                            <div id="errorAdd" class="error"></div>
                         </div>
-                        <input type="text" name="" id="pc" placeholder="  Enter PC" required>
-                        <input type="text" name="" id="username" placeholder="  Enter username" required>
-                        <div class="select-tool">
-                            <label for="Nan">Nan: </label>
-                            <select  name="Nan" id="Nan" required>
-                                <option selected disabled>Select the status</option>
-                                <option value="fa fa-check" id="correct">✅</option>
-                                <option value="fa fa-xmark" id="wrong">❌</option>
-                            </select>
-                        </div>
-                        <input type="text" name="" id="price" placeholder="  Enter Prices" required>
-                         <button onclick="addRow()" ><i class="fa-solid fa-plus"></i></button>
-                         <div id="errorAdd" class="error"></div>
-                    </div>
+                    </form>
                 </div>
             </section>
 
 
         
-        <script src="main.js"></script>
+     <script src="main.js"></script>
 
 </body>
 </html>
