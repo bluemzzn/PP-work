@@ -1,26 +1,26 @@
-//call the fetch send request to json 
-fetch("datas.json")
-    .then(function (response) {
-        return response.json();
-    })
+// //call the fetch send request to json 
+// fetch("datas.json")
+//     .then(function (response) {
+//         return response.json();
+//     })
 
-    .then(function (datas) {
-        let placeholder = document.querySelector('#data-output');
-        let out = "";
-        for (let data of datas) {
-            out += ` 
-            <tr>
-                <td><input type="checkbox" class="row-check"></td>
-                <td>${data.status}</td>
-                <td>${data.pc}</td>
-                <td>${data.username}</td>
-                <td>${data.price}</td>
-            </tr>
-        `;
-        }
+//     .then(function (datas) {
+//         let placeholder = document.querySelector('#data-output');
+//         let out = "";
+//         for (let data of datas) {
+//             out += ` 
+//             <tr>
+//                 <td><input type="checkbox" class="row-check"></td>
+//                 <td>${data.status}</td>
+//                 <td>${data.pc}</td>
+//                 <td>${data.username}</td>
+//                 <td>${data.price}</td>
+//             </tr>
+//         `;
+//         }
 
-        placeholder.innerHTML = out;
-    })
+//         placeholder.innerHTML = out;
+//     })
 
 
 // Login & Register animation
@@ -100,57 +100,128 @@ function validationForm() {
     }
 }
 
+
+//Add data on the row 
 const form = document.getElementById("dataForm");
 const table = document.querySelector("#dataTable tbody");
 
 
 //store data in json
-let data = [];
+let data = JSON.parse(localStorage.getItem("pcData")) || [];
 
-form.addEventListener("submit", function(e){
+renderTable();
+
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    const status = document.getElementById("status-input").value.trim();
     const pc = document.getElementById("pc-input").value.trim();
     const username = document.getElementById("username-input").value.trim();
     const price = document.getElementById("price-input").value.trim();
+    const other = document.getElementById("other-input").value.trim();
 
-    if (pc && username && price){
+
+    if (pc && username && price) {
         const newData = {
-            status: "online",
+            status,
             pc,
             username,
             price,
+            other,
             lastOnline: new Date().toISOString().split("T")[0],
         };
 
         data.push(newData);
+        localStorage.setItem("pcData", JSON.stringify(data));
         renderTable();
         form.reset();
     }
 });
 
 
-function renderTable(){
+function renderTable() {
     table.innerHTML = "";
 
-    data.forEach((item) =>{
+    data.forEach((item) => {
         const row = document.createElement("tr");
 
         row.innerHTML = `
         <td><input type="checkbox" class="row-check"></td>
-        <td class="${item.status === 'online' ? 'status-online' : 'status-offline'}">
-            ${item.status === 'online' ? 'Online' : 'Offline'}
-        </td>
+        <td>${item.status === 'Online' ? 'Online' : 'Offline'}</td>
         <td>${item.pc}</td>
         <td>${item.username}</td>
         <td>${item.price}</td>
+         <td>${item.other === '✅' ? '✅' : '❌'}</td>
         `;
         table.appendChild(row);
     });
+
+ 
 }
 
+//selected delete row
+function deleteSelectedRows() {
+    const checkboxes = document.querySelectorAll('.row-check:checked');
+    const errorDelete = document.querySelector('.errorDelete');
+    if (checkboxes.length === 0) {
+        errorDelete.textContent = " Please select rows to delete";
+        return;
+    }
+
+    if (confirm("Are you sure you want to delete selected rows?")) {
+        checkboxes.forEach(checkbox => {
+            const row = checkbox.closest('tr');
+            const rowIndex = Array.from(row.parentNode.children).indexOf(row);
+            data.splice(rowIndex, 1);
+        });
+        localStorage.setItem("pcData", JSON.stringify(data));
+        renderTable();
+        errorDelete.textContent = '';
+    }
+}
+
+const deleteTable = document.getElementById("delete");
+
+deleteTable.addEventListener('click', deleteSelectedRows);
 
 
+//Select all check box
+const checkboxall = document.getElementById("selectAllcheckbox");
+
+checkboxall.addEventListener(('click'), function () {
+    if (this.checked) {
+        const inputall = document.querySelectorAll(".row-check");
+        inputall.forEach(tick => {
+            tick.checked = true;
+        });
+    } else {
+        const inputall = document.querySelectorAll(".row-check");
+        inputall.forEach(tick => {
+            tick.checked = false;
+        });
+    }
+})
+
+
+//count check box
+
+function updateSelectedCount() {
+    const count_check = document.querySelectorAll(".row-check");
+    let count = 0;
+    for(const checkbox of count_check){
+        if(checkbox.checked === true){
+            count++;
+        }
+    }
+    document.getElementById('selectedCount').innerHTML = count;
+}
+
+// Add event listeners for checkbox changes
+document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('row-check') || e.target.id === 'selectAllcheckbox') {
+        updateSelectedCount();
+    }
+});
 
 
 
@@ -210,28 +281,5 @@ function renderTable(){
 //     localStorage.setItem('form', json);
 // })
 
-// //Select All checkboxes
-// function selectAll(source) {
-//     const checkboxes = document.querySelectorAll('#dev-table tbody input[type="checkbox"]');
-//     checkboxes.forEach(cb => {
-//         cb.checked = source.checked;
-//     });
-//     updateCheckedCount();
-// }
-
-// function updateCheckedCount() {
-//     const checkboxes = document.querySelectorAll('#dev-table tbody input[type="checkbox"]');
-//     const count = Array.from(checkboxes).filter(cb => cb.checked).length;
-//     document.getElementById('checkedCount').innerText = count;
-
-//     // Update select all checkbox state if not all are selected
-//     const selectAllCheckbox = document.getElementById('selectAllCheckbox');
-//     selectAllCheckbox.checked = checkboxes.length && count === checkboxes.length;
-//     selectAllCheckbox.indeterminate = count > 0 && count < checkboxes.length;
-// }
-
-// document.querySelectorAll('#dev-table tbody input[type="checkbox"]').forEach(cb => {
-//     cb.addEventListener('change', updateCheckedCount);
-// });
 
 

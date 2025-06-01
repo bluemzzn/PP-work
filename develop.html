@@ -25,23 +25,29 @@
                 <button class="filter-tool"><i class="fa-solid fa-filter"></i>  filter</button>      
                 <div class="dev-search">
                     <input type="search" name="" id="search-filter" placeholder="Search..." >
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                 </div>
                 <span><i class="fa-regular fa-file-excel" style="background: #4cd137;"></i></span>
-                <span><i class="fa-solid fa-trash-can" style="background: rgb(168, 168, 168);"></i></span>
+                <span><i class="fa-solid fa-trash-can" onclick="deleteTable()"  id="delete" style="background: rgb(168, 168, 168);"></i></span>
+                <div class="errorDelete"></div>
             </section>
+
+            <div class="check-output" >
+                <span>Selected : </span>
+                <span id="selectedCount">0</span>
+            </div>
         </div>
                 
             <section >
                 <table id="dataTable">
                     <thead>
                         <tr>
-                            <th><input type="checkbox" onclick="selectAll(this)" id="selectAllcheckbox"></th>
+                            <th><input type="checkbox" id="selectAllcheckbox"></th>
                             <th>Status  <i class="fa-solid fa-sort"></i></th>
                             <th>PC   <i class="fa-solid fa-sort"></i></th>
                             <th>Username   <i class="fa-solid fa-sort"></i></th>
                             <th>Price   <i class="fa-solid fa-sort"></i></th>
-                            <th>Nan   <i class="fa-solid fa-sort"></i></th>
+                            <th>Other   <i class="fa-solid fa-sort"></i></th>
                         </tr>
                     </thead>
                     <tbody id="dataOutput">
@@ -56,21 +62,21 @@
                         <div class="input-info">
                             <div class="select-tool">
                                 <label for="status">Status: </label>
-                                <select  name="status" id="status" required>
-                                    <option selected disabled>Select the status</option>
-                                    <option value="Online" id="online">Online</option>
-                                    <option value="Offline" id="offine">Offline</option>
+                                <select  name="status" id="status-input" required>
+                                    <option value="" disabled selected>Select the status</option>
+                                    <option value="Online" id="online" >Online</option>
+                                    <option value="Offline" id="offline" >Offline</option>
                                 </select>
                             </div>
                             <input type="text" name="" id="pc-input" placeholder="  Enter PC" required>
                             <input type="text" name="" id="username-input" placeholder="  Enter username" required>
                             <input type="text" name="" id="price-input" placeholder="  Enter Prices" required>
                             <div class="select-tool">
-                                <label for="nan">Nan: </label>
-                                <select  name="nan" id="nan" required>
+                                <label for="other">Other: </label>
+                                <select  name="other" id="other-input" required>
                                     <option selected disabled>Select the status</option>
-                                    <option value="fa fa-check" id="correct">✅</option>
-                                    <option value="fa fa-xmark" id="wrong">❌</option>
+                                    <option value="✅" id="correct">✅</option>
+                                    <option value="❌" id="wrong">❌</option>
                                 </select>
                             </div>
                             <button  value="submit">Add</button>
