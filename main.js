@@ -156,7 +156,7 @@ function renderTable() {
         table.appendChild(row);
     });
 
- 
+
 }
 
 //selected delete row
@@ -208,8 +208,8 @@ checkboxall.addEventListener(('click'), function () {
 function updateSelectedCount() {
     const count_check = document.querySelectorAll(".row-check");
     let count = 0;
-    for(const checkbox of count_check){
-        if(checkbox.checked === true){
+    for (const checkbox of count_check) {
+        if (checkbox.checked === true) {
             count++;
         }
     }
@@ -217,12 +217,50 @@ function updateSelectedCount() {
 }
 
 // Add event listeners for checkbox changes
-document.addEventListener('change', function(e) {
+document.addEventListener('change', function (e) {
     if (e.target.classList.contains('row-check') || e.target.id === 'selectAllcheckbox') {
         updateSelectedCount();
     }
 });
 
+// Search filter
+const search = document.getElementById('search-filter');
+if (search) {
+    search.addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase();
+        const tableRows = document.querySelectorAll('#dataTable tbody tr');
+
+        tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+}
+
+//link api 
+const linkIcon = document.getElementById('apiLink');
+const showInput = document.querySelector('.api-show');
+const enter_button = document.getElementById('enter-api');
+const linkInput = document.getElementById('input-link');
+
+linkIcon.addEventListener(('click'), function(){
+    showInput.classList.toggle('show');
+});
+
+enter_button.addEventListener(('click'), function(){
+    const url = linkInput.value.trim();
+    if(url){
+        openApilink(url);
+    }
+});
+
+function openApilink(url){
+    window.open(url);
+}
 
 
 

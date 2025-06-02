@@ -27,8 +27,17 @@
                     <input type="search" name="" id="search-filter" placeholder="Search..." >
                     <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                 </div>
-                <span><i class="fa-regular fa-file-excel" style="background: #4cd137;"></i></span>
-                <span><i class="fa-solid fa-trash-can" onclick="deleteTable()"  id="delete" style="background: rgb(168, 168, 168);"></i></span>
+
+                <div class="api-link">
+                    <span><i class="fa-solid fa-file-export"  onclick="openApi()" id="apiLink"></i></span>
+                    <div class="api-show">
+                        <input type="text" id="input-link">
+                        <button class="enter-api" id="enter-api">Enter</button>
+                    </div>
+                </div>
+
+                <span><i class="fa-solid fa-trash-can" onclick="deleteTable()"  id="delete"></i></span>
+
                 <div class="errorDelete"></div>
             </section>
 
