@@ -119,6 +119,13 @@ form.addEventListener("submit", function (e) {
     const username = document.getElementById("username-input").value.trim();
     const price = document.getElementById("price-input").value.trim();
     const other = document.getElementById("other-input").value.trim();
+    const errorInput = document.getElementById('errorAdd');
+
+    
+     if (!status || !pc || !username || !price || !other) {
+         errorInput.textContent = 'Please input the information!';
+         return;
+     }
 
 
     if (pc && username && price) {
@@ -131,6 +138,7 @@ form.addEventListener("submit", function (e) {
             lastOnline: new Date().toISOString().split("T")[0],
         };
 
+          errorInput.textContent = '';
         data.push(newData);
         localStorage.setItem("pcData", JSON.stringify(data));
         renderTable();
@@ -266,58 +274,6 @@ function openApilink(url){
 
 
 
-
-
-
-
-
-
-
-// add row
-// function addRow() {
-//     const pc = document.getElementById('pc').value.trim();
-//     const status = document.getElementById('status').value.trim();
-//     const username = document.getElementById('username').value.trim();
-//     const price = document.getElementById('price').value.trim();
-//     const nan = document.getElementById('nan').value.trim();
-//     const errorInput = document.getElementById('errorAdd');
-
-//     const table = document.getElementById('dev-table').getElementsByTagName("tbody")[0];
-//     const newrow = table.insertRow();
-
-//     if (!status || !pc || !username || !price) {
-//         errorInput.textContent = 'Please input the information!';
-//         return;
-//     }
-
-//     newrow.insertCell().innerHTML = `<input type="checkbox" class="row-check">`;
-//     newrow.insertCell().innerText = status;
-//     newrow.insertCell().innerText = pc;
-//     newrow.insertCell().innerText = username;
-//     newrow.insertCell().innerText = price;
-//     newrow.insertCell().innerHTML = nan;
-
-
-//     //clear input
-//     document.getElementById("status").value = '';
-//     document.getElementById("pc").value = '';
-//     document.getElementById("username").value = '';
-//     document.getElementById("price").value = '';
-//     document.getElementById("nan").value = '';
-
-//     errorInput.textContent = '';
-// }
-
-// const form = document.querySelector("form");
-
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     const formdata = new FormData(form);
-//     const obj = Object.fromEntries(formdata);
-
-//     const json = JSON.stringify(obj);
-//     localStorage.setItem('form', json);
-// })
 
 
 
